@@ -1,5 +1,8 @@
 package com.cgi.steps;
 
+import java.util.List;
+import java.util.Map;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,11 +35,20 @@ public class EmployeeSteps {
 	    ;
 	}
 
-	@When("User fill the employee form")
-	public void user_fill_the_employee_form(DataTable dataTable) {
-	    System.out.println(dataTable);
-	}
-
+	 @When("User fill the employee form")
+		public void user_fill_the_employee_form(DataTable dataTable) {
+			//fill the firstname,lastname,middlename 
+		    System.out.println(dataTable);
+		    
+		    List<Map<String,String>> lists=dataTable.asMaps();
+		    System.out.println(lists);
+		    
+		    System.out.println(lists.get(0));
+		    System.out.println(lists.get(0).get("firstname"));
+		    System.out.println(lists.get(0).get("middlename"));
+		    System.out.println(lists.get(0).get("lastname"));
+		}
+	 
 	@When("User clicks on save employee")
 	public void user_clicks_on_save_employee() {
 	   
